@@ -1,4 +1,6 @@
 ﻿@page "/"
+@using PMT_Prototype.Shared
+@inject HttpClient Http
 
 <PageTitle>Index</PageTitle>
 
@@ -7,3 +9,36 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+@if (companies == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Company Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var company in companies)
+            {
+                <tr>
+                    <td>@company</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+    private List<string>? companies;
+
+    protected override async Task OnInitializedAsync()
+    {
+        companies = await Http.GetFromJsonAsync<List<string>>("InitialStartup/companies");
+    }
+}
