@@ -1,4 +1,4 @@
-﻿namespace PMT_Prototype.Shared
+﻿namespace PMT_Prototype.Server.Models
 {
     public class CompanyNameModel
     {

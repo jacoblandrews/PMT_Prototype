@@ -13,6 +13,11 @@ builder.Services.AddHttpClient<InitialStartupClient>(client =>
     client.BaseAddress = new Uri($"{builder.HostEnvironment.BaseAddress}InitialStartup/");
 });
 
+builder.Services.AddHttpClient<WeatherClient>(client =>
+{
+    client.BaseAddress = new Uri($"https://api.weather.gov/alerts/");
+});
+
 builder.Services.AddBlazoredToast();
 
 await builder.Build().RunAsync();
