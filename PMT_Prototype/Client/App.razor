@@ -1,7 +1,15 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
+﻿@using Blazored.Toast.Configuration
+<Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        <BlazoredToasts Position="ToastPosition.BottomRight"
+                        Timeout="10"
+                        IconType="IconType.FontAwesome"
+                        SuccessClass="success-toast-override"
+                        SuccessIcon="fa fa-thumbs-up"
+                        ErrorIcon="fa fa-bug"
+                        RemoveToastsOnNavigation="true" />
     </Found>
     <NotFound>
         <PageTitle>Not found</PageTitle>

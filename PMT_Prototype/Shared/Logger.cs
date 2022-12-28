@@ -18,9 +18,9 @@ namespace PMT_Prototype.Shared
 
         public static Logger Instance => logger.Value;
 
-        public static async Task Log(string message, LogLevel level, CancellationToken ct)
+        public static async Task Log(string message, LogLevel level)
         {
-            await semaphore.WaitAsync(ct);
+            await semaphore.WaitAsync(500);
 
             try
             {
@@ -35,7 +35,7 @@ namespace PMT_Prototype.Shared
 
                 message = $"{DateTimeOffset.UtcNow}: LOG LEVEL: {level} - Message: {Environment.NewLine} {message}";
 
-                await File.AppendAllTextAsync(LogFileName, message, ct);
+                await File.AppendAllTextAsync(LogFileName, message);
 
             }
             finally
@@ -45,7 +45,7 @@ namespace PMT_Prototype.Shared
 
         }
 
-        public static async Task Log(Exception exception, LogLevel level, CancellationToken ct)
+        public static async Task Log(Exception exception, LogLevel level)
         {
             var formattedMessage = $@"
             |Message: {exception.Message}|
@@ -53,7 +53,7 @@ namespace PMT_Prototype.Shared
             |Stack Trace: {exception.StackTrace}|
             ";
 
-            await Log(formattedMessage, level, ct);
+            await Log(formattedMessage, level);
         }
 
         public enum LogLevel

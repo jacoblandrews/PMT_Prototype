@@ -1,0 +1,40 @@
+12/27/2022 7:42:47 PM +00:00: LOG LEVEL: Error - Message: 
+ 
+            |Message: Object of type 'System.String' cannot be converted to type 'System.Int32'.|
+            |Source: System.Private.CoreLib|
+            |Stack Trace:    at System.RuntimeType.CheckValue(Object& value, ParameterCopyBackAction& copyBack, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
+   at System.Reflection.MethodBase.CheckArguments(Span`1 copyOfParameters, IntPtr* byrefParameters, Span`1 shouldCopyBack, ReadOnlySpan`1 parameters, RuntimeType[] sigTypes, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
+   at System.Reflection.RuntimeMethodInfo.InvokeOneParameter(Object obj, BindingFlags invokeAttr, Binder binder, Object parameter, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, BindingFlags invokeAttr, Binder binder, Object[] index, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, Object[] index)
+   at PMT_Prototype.Shared.DatabaseWrapper.SetItemFromRow[T](T item, DataRow row) in C:\Users\JacobA\source\repos\PMT_Prototype\PMT_Prototype\Shared\DatabaseWrapper.cs:line 170
+   at PMT_Prototype.Shared.DatabaseWrapper.CreateItemFromRow[T](DataRow row) in C:\Users\JacobA\source\repos\PMT_Prototype\PMT_Prototype\Shared\DatabaseWrapper.cs:line 142
+   at PMT_Prototype.Shared.DatabaseWrapper.CreateListFromTable[T](DataTable tbl) in C:\Users\JacobA\source\repos\PMT_Prototype\PMT_Prototype\Shared\DatabaseWrapper.cs:line 128
+   at PMT_Prototype.Shared.DatabaseWrapper.RunQueryAsync[T](String sql, DatabaseEnvironment env, CancellationToken ct, Dictionary`2 parameters) in C:\Users\JacobA\source\repos\PMT_Prototype\PMT_Prototype\Shared\DatabaseWrapper.cs:line 107|
+            12/27/2022 7:44:41 PM +00:00: LOG LEVEL: Error - Message: 
+ 
+            |Message: Object of type 'System.String' cannot be converted to type 'System.Int32'.|
+            |Source: System.Private.CoreLib|
+            |Stack Trace:    at System.RuntimeType.CheckValue(Object& value, ParameterCopyBackAction& copyBack, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
+   at System.Reflection.MethodBase.CheckArguments(Span`1 copyOfParameters, IntPtr* byrefParameters, Span`1 shouldCopyBack, ReadOnlySpan`1 parameters, RuntimeType[] sigTypes, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
+   at System.Reflection.RuntimeMethodInfo.InvokeOneParameter(Object obj, BindingFlags invokeAttr, Binder binder, Object parameter, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, BindingFlags invokeAttr, Binder binder, Object[] index, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, Object[] index)
+   at PMT_Prototype.Shared.DatabaseWrapper.SetItemFromRow[T](T item, DataRow row) in C:\Users\JacobA\source\repos\PMT_Prototype\PMT_Prototype\Shared\DatabaseWrapper.cs:line 170
+   at PMT_Prototype.Shared.DatabaseWrapper.CreateItemFromRow[T](DataRow row) in C:\Users\JacobA\source\repos\PMT_Prototype\PMT_Prototype\Shared\DatabaseWrapper.cs:line 142
+   at PMT_Prototype.Shared.DatabaseWrapper.CreateListFromTable[T](DataTable tbl) in C:\Users\JacobA\source\repos\PMT_Prototype\PMT_Prototype\Shared\DatabaseWrapper.cs:line 128
+   at PMT_Prototype.Shared.DatabaseWrapper.RunQueryAsync[T](String sql, DatabaseEnvironment env, CancellationToken ct, Dictionary`2 parameters) in C:\Users\JacobA\source\repos\PMT_Prototype\PMT_Prototype\Shared\DatabaseWrapper.cs:line 107|
+            12/27/2022 7:45:50 PM +00:00: LOG LEVEL: Error - Message: 
+ 
+            |Message: Object of type 'System.String' cannot be converted to type 'System.Int32'.|
+            |Source: System.Private.CoreLib|
+            |Stack Trace:    at System.RuntimeType.CheckValue(Object& value, ParameterCopyBackAction& copyBack, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
+   at System.Reflection.MethodBase.CheckArguments(Span`1 copyOfParameters, IntPtr* byrefParameters, Span`1 shouldCopyBack, ReadOnlySpan`1 parameters, RuntimeType[] sigTypes, Binder binder, CultureInfo culture, BindingFlags invokeAttr)
+   at System.Reflection.RuntimeMethodInfo.InvokeOneParameter(Object obj, BindingFlags invokeAttr, Binder binder, Object parameter, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, BindingFlags invokeAttr, Binder binder, Object[] index, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, Object[] index)
+   at PMT_Prototype.Shared.DatabaseWrapper.SetItemFromRow[T](T item, DataRow row) in C:\Users\JacobA\source\repos\PMT_Prototype\PMT_Prototype\Shared\DatabaseWrapper.cs:line 170
+   at PMT_Prototype.Shared.DatabaseWrapper.CreateItemFromRow[T](DataRow row) in C:\Users\JacobA\source\repos\PMT_Prototype\PMT_Prototype\Shared\DatabaseWrapper.cs:line 142
+   at PMT_Prototype.Shared.DatabaseWrapper.CreateListFromTable[T](DataTable tbl) in C:\Users\JacobA\source\repos\PMT_Prototype\PMT_Prototype\Shared\DatabaseWrapper.cs:line 128
+   at PMT_Prototype.Shared.DatabaseWrapper.RunQueryAsync[T](String sql, DatabaseEnvironment env, CancellationToken ct, Dictionary`2 parameters) in C:\Users\JacobA\source\repos\PMT_Prototype\PMT_Prototype\Shared\DatabaseWrapper.cs:line 107|
+            

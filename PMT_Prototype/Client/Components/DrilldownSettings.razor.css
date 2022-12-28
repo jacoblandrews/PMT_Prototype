@@ -1,0 +1,24 @@
+﻿
+.dropdown-submenu {
+    position: relative;
+    display: flex;
+}
+
+    .dropdown-submenu:hover {
+        background: rgb(230,236,241);
+    }
+
+    .dropdown-submenu > .dropdown-menu {
+        left: 100%;
+        /* -6px gives dropdown-menu's padding+border */
+        top: -6px;
+    }
+
+    .dropdown-submenu:hover > .dropdown-menu, .dropdown-submenu > a:focus + .dropdown-menu {
+        display: block;
+    }
+
+.dropdown-item i {
+    float: right;
+    margin-top: 5px;
+}

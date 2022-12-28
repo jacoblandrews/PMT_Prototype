@@ -1,4 +1,7 @@
 ﻿@inherits LayoutComponentBase
+@using PMT_Prototype.Shared
+@inject InitialStartupClient client
+@inject IToastService toastService
 
 <div class="page">
     <div class="sidebar">
@@ -6,7 +9,71 @@
     </div>
 
     <main>
-        <div class="top-row px-4">
+        <div class="top-row container-fluid">
+            @if (companies == null || folders == null || treatyYears == null)
+            {
+                <div class="row align-items-baseline">
+                    <div class="col col-lg-12"><em>Loading...</em></div>
+                </div>
+            }
+            else
+            {
+                <div class="row align-items-baseline">
+                    <div class="col-1 d-flex justify-content-left">
+                        <DrilldownSettings />
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group">
+                            <label for="folder" class="form-label align-self-center">Folder:</label>
+                            <select id="folder" class="form-control pe-0" @bind="@selectedFolder">
+
+                                @foreach (var folder in folders)
+                                {
+                                    <option value="@folder"> @folder </option>
+                                }
+
+                            </select>
+                            <button type="button" class="btn btn-primary split-button" @onclick="SetAsDefault">
+                                Set As Default
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="input-group">
+                            <label for="company" class="form-label align-self-center">Company:</label>
+                            <select id="company" class="form-control" @bind="@selectedCompany">
+
+                                @foreach (var company in companies)
+                                {
+                                    <option value="@company"> @company </option>
+                                }
+
+                            </select>
+                            <button type="button" class="btn btn-primary split-button" @onclick="AddNewCompany">
+                                Add New Company
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="input-group">
+                            <label for="year" class="form-label align-self-center">Treaty Year:</label>
+                            <select id="year" class="form-control pe-0" @bind="@selectedTreatyYear">
+
+                                @foreach (var year in treatyYears)
+                                {
+                                    <option value="@year"> @year </option>
+                                }
+
+                            </select>
+                            <button type="button" class="btn btn-primary split-button" @onclick="SetAsDefault">
+                                Set As Default
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+            }
         </div>
 
         <article class="content px-4">
@@ -14,3 +81,65 @@
         </article>
     </main>
 </div>
+
+@code {
+    private List<string>? companies;
+    private List<string>? folders;
+    private List<int>? treatyYears;
+    private string? selectedCompany = string.Empty;
+    private string? selectedFolder = string.Empty;
+    private int? selectedTreatyYear = 1900;
+
+    protected override async Task OnInitializedAsync()
+    {
+        System.Net.HttpStatusCode statusCode;
+
+        try
+        {
+            (statusCode, companies) = await client.GetCompaniesAsync();
+
+            if (!statusCode.IsSuccessStatusCode())
+            {
+                toastService.ShowError($"Error - {statusCode} occurred while getting companies. Please try again or contact the development team if this error persists.", "An error has occurred.");
+                return;
+            }
+
+            (statusCode, folders) = await client.GetFoldersAsync();
+
+            if (!statusCode.IsSuccessStatusCode())
+            {
+                toastService.ShowError($"Error - {statusCode} occurred while getting folders. Please try again or contact the development team if this error persists.", "An error has occurred.");
+                return;
+            }
+
+            selectedCompany = companies?.FirstOrDefault() ?? string.Empty;
+            selectedFolder = folders?.FirstOrDefault() ?? string.Empty;
+
+            (statusCode, treatyYears) = await client.GetTreatyYearsAsync(selectedCompany);
+
+            if (!statusCode.IsSuccessStatusCode())
+            {
+                toastService.ShowError($"Error - {statusCode} occurred while getting treaty years. Please try again or contact the development team if this error persists.", "An error has occurred.");
+                return;
+            }
+
+            selectedTreatyYear = treatyYears?.FirstOrDefault() ?? 1900;
+        }
+        catch(Exception ex)
+        {
+            toastService.ShowError($"Error - {ex.Message} occurred while starting up the application. Please try again or contact the development team if this error persists.", "An error has occurred.");
+        }
+
+    }
+
+    protected void AddNewCompany()
+    {
+
+    }
+
+    protected void SetAsDefault()
+    {
+
+    }
+
+}
