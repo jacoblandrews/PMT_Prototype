@@ -8,15 +8,43 @@
 
 @if (_weatherAlerts == null)
 {
-    <div class="row align-items-baseline">
-        <div class="col col-lg-12"><em>Loading...</em></div>
+    <div class="placeholder-glow" aria-hidden="true">
+        <p class="placeholder placeholder-lg col-1" /> <span class="col-11" style="display:block" />
+        <p class="placeholder placeholder-lg col-3" /> <span class="col-9" style="display:block" />
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="placeholder col-2" scope="col"></th>
+                        <th class="placeholder col-2" scope="col"></th>
+                        <th class="placeholder col-2" scope="col"></th>
+                        <th class="placeholder col-2" scope="col"></th>
+                        <th class="placeholder col-2" scope="col"></th>
+                        <th class="placeholder col-2" scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < 15; i++)
+                    {
+                        <tr>
+                            <td><span class="placeholder col-2" /></td>
+                            <td><span class="placeholder col-2" /></td>
+                            <td><span class="placeholder col-2" /></td>
+                            <td><span class="placeholder col-2" /></td>
+                            <td><span class="placeholder col-2" /></td>
+                            <td><span class="placeholder col-2" /></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 }
 else
 {
     <article>
         <p class="fw-bold fs-2">PMT Home</p>
-        <p class="fw-semibold fs-4">Below are a collection of new NWS weather alerts.</p>
+        <p class="fw-semibold fs-5">Below are a collection of new NWS weather alerts.</p>
         <div class="table-responsive">
             <table class="table table-striped table-hover">
                 <thead>
