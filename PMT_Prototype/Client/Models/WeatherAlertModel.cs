@@ -53,14 +53,14 @@ namespace PMT_Prototype.Client.Models
 
         public void MapFromDataModel(Properties dm)
         {
-            EffectiveTime = dm.Effective;
-            Expires = dm.Expires;
-            Severity = dm.Severity;
-            Event = dm.Event;
-            Sender = dm.SenderName.Replace("NWS", "").Trim();
-            AdditionalInfo = $@"{dm.Headline}
+            EffectiveTime = dm?.Effective ?? DateTimeOffset.MinValue;
+            Expires = dm?.Expires ?? DateTimeOffset.MinValue;
+            Severity = dm?.Severity ?? string.Empty;
+            Event = dm?.Event ?? string.Empty;
+            Sender = dm?.SenderName?.Replace("NWS", "").Trim() ?? string.Empty;
+            AdditionalInfo = $@"{dm?.Headline ?? string.Empty}
                                         
-                                {dm.Description}";
+                                {dm?.Description ?? string.Empty}";
         }
 
     }

@@ -20,7 +20,7 @@ namespace PMT_Prototype.Client.Clients
 
             if (response.IsSuccessStatusCode)
             {
-                alerts = (await response.Content.ReadFromJsonAsync<WeatherDataModel>())?.Features.Select(x => x.Properties).DistinctBy(x => x.SenderName).Take(15).ToList() ?? new List<Properties>();
+                alerts = (await response.Content.ReadFromJsonAsync<WeatherDataModel>())?.Features?.Select(x => x?.Properties ?? new Properties()).DistinctBy(x => x.SenderName).Take(15).ToList() ?? new List<Properties>();
             }
             else
             {

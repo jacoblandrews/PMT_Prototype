@@ -6,74 +6,74 @@
 
 <PageTitle>Index</PageTitle>
 
-@if (_weatherAlerts == null)
-{
-    <div class="placeholder-glow" aria-hidden="true">
-        <p class="placeholder placeholder-lg col-1" /> <span class="col-11" style="display:block" />
-        <p class="placeholder placeholder-lg col-3" /> <span class="col-9" style="display:block" />
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th class="placeholder col-2" scope="col"></th>
-                        <th class="placeholder col-2" scope="col"></th>
-                        <th class="placeholder col-2" scope="col"></th>
-                        <th class="placeholder col-2" scope="col"></th>
-                        <th class="placeholder col-2" scope="col"></th>
-                        <th class="placeholder col-2" scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (int i = 0; i < 15; i++)
-                    {
+    @if (_weatherAlerts == null)
+    {
+        <div class="placeholder-glow" aria-hidden="true">
+            <p class="placeholder placeholder-lg col-1" /> <span class="col-11" style="display:block" />
+            <p class="placeholder placeholder-lg col-3" /> <span class="col-9" style="display:block" />
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td><span class="placeholder col-2" /></td>
-                            <td><span class="placeholder col-2" /></td>
-                            <td><span class="placeholder col-2" /></td>
-                            <td><span class="placeholder col-2" /></td>
-                            <td><span class="placeholder col-2" /></td>
-                            <td><span class="placeholder col-2" /></td>
+                            <th class="placeholder col-2" scope="col"></th>
+                            <th class="placeholder col-2" scope="col"></th>
+                            <th class="placeholder col-2" scope="col"></th>
+                            <th class="placeholder col-2" scope="col"></th>
+                            <th class="placeholder col-2" scope="col"></th>
+                            <th class="placeholder col-2" scope="col"></th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < 15; i++)
+                        {
+                            <tr>
+                                <td><span class="placeholder col-2" /></td>
+                                <td><span class="placeholder col-2" /></td>
+                                <td><span class="placeholder col-2" /></td>
+                                <td><span class="placeholder col-2" /></td>
+                                <td><span class="placeholder col-2" /></td>
+                                <td><span class="placeholder col-2" /></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-}
-else
-{
-    <article>
-        <p class="fw-bold fs-2">PMT Home</p>
-        <p class="fw-semibold fs-5">Below are a collection of new NWS weather alerts.</p>
-        <div class="table-responsive">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Severity</th>
-                        <th scope="col">Effective</th>
-                        <th scope="col">Expires</th>
-                        <th scope="col">Sender</th>
-                        <th scope="col">Info</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var alert in _weatherAlerts)
-                    {
+    }
+    else
+    {
+        <article>
+            <p class="fw-bold fs-2">PMT Home</p>
+            <p class="fw-semibold fs-5">Below are a collection of new NWS weather alerts.</p>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
                         <tr>
-                            <td><span data-bs-toggle="tooltip" title="@alert.Event"><i class="@alert.IconClass"></i></span></td>
-                            <td>@alert.Severity</td>
-                            <td>@alert.EffectiveTime.ToString("f")</td>
-                            <td>@alert.Expires.ToString("f")</td>
-                            <td>@alert.Sender</td>
-                            <td><span data-bs-toggle="tooltip" title="@alert.AdditionalInfo"><i class="fa-solid fa-circle-info"></i></span></td>
+                            <th scope="col"></th>
+                            <th scope="col">Severity</th>
+                            <th scope="col">Effective</th>
+                            <th scope="col">Expires</th>
+                            <th scope="col">Sender</th>
+                            <th scope="col">Info</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </article>
-}
+                    </thead>
+                    <tbody>
+                        @foreach (var alert in _weatherAlerts)
+                        {
+                            <tr>
+                                <td><span data-bs-toggle="tooltip" title="@alert.Event"><i class="@alert.IconClass"></i></span></td>
+                                <td>@alert.Severity</td>
+                                <td>@alert.EffectiveTime.ToString("f")</td>
+                                <td>@alert.Expires.ToString("f")</td>
+                                <td>@alert.Sender</td>
+                                <td><span data-bs-toggle="tooltip" title="@alert.AdditionalInfo"><i class="fa-solid fa-circle-info"></i></span></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </article>
+    }
 
 @code {
     private List<WeatherAlertModel>? _weatherAlerts;

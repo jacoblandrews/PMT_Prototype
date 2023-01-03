@@ -72,11 +72,6 @@ You can find our Bootstrap stylesheets in `font/css/open-iconic-bootstrap.{css, 
 <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 ```
 
-
-```
-<span class="oi oi-icon-name" title="icon name" aria-hidden="true"></span>
-```
-
 ##### …with Foundation
 
 You can find our Foundation stylesheets in `font/css/open-iconic-foundation.{css, less, scss, styl}`
